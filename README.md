@@ -73,7 +73,7 @@ Part 3: Logging and visualizing everything
 We will achieve this by log Forwarding and KQL
 
 
-Create a Sentinel Instance and connect it to Log Analytics
+
 
 
 Create Log Analytics Workspace
@@ -83,33 +83,119 @@ Create Log Analytics Workspace
 
 
 
+Then, I created a Sentinel Instance and connected it to Log Analytics 
+
+A. Configuring the “Windows Security Events via AMA” connector
+
+B. Creating the DCR within Sentinel
 
 
 
 
-
-nfigure the “Windows Security Events via AMA” connector
-
-Create the DCR within Sentinel, watch for extension creation
-
-Query for logs within the LAW
-
-
-
-
-
-We can now query the Log analytics workspace as well as the SIEM, Sentinel directly, which we will do soon
+We can now query the Log Analytics workspace using KQL 
 
 
 Using KQL, I observed the logs of my VM:
 
 SecurityEvent
-| where EventId == 4625
+
+| where EventId == 4625 (failed password attempt EventID )
 
 <img width="1252" height="549" alt="image" src="https://github.com/user-attachments/assets/8bcf5928-1f5e-4b8b-95b6-5e8dec5d687e" />
 
 
 Quite a few Security Violations! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The final result is a Honey Pot Connected to Log Analytics for a visual log. 
+
+<img width="1375" height="747" alt="image" src="https://github.com/user-attachments/assets/4637db40-5de1-4812-babf-e2271c506f1e" />
+
+
+
+
+
+
+
+
+
+
+We next use Microsoft Seintal to demonstrate what we found on a map. 
+
+
+
+
+
+<img width="1485" height="664" alt="image" src="https://github.com/user-attachments/assets/658de9f4-7887-4518-9c65-c3cbe7df954a" />
+
+
+This Code is entered in -> Microsoft Sentinel -> Workbooks -> Create New -> Edit -> Advanced Editor 
+
+
+<img width="1173" height="790" alt="image" src="https://github.com/user-attachments/assets/73c5eba8-7109-43e7-b43a-bb0b508c2e53" />
+
+
+
+The Final result is a map displaying incoming attackers' locations 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
